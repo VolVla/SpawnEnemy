@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public GameObject _pointDirection;
+
+    private void Awake()
+    {
+        _pointDirection = GameObject.Find("Direction");
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, _pointDirection.transform.position, Time.deltaTime);
+    }
+}
